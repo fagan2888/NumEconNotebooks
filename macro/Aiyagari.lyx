@@ -150,7 +150,7 @@ vspace{-2mm}}
 
 
 \backslash
-subtitle{numecon} 
+subtitle{NumEcon} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -422,22 +422,15 @@ Solve an Aiyagari model numerically (using Python)
 \begin_layout Itemize
 
 \series bold
-numecon module
-\series default
- (under construction)
+NumEcon module
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-
-\series bold
-Source files: 
-\series default
-
 \begin_inset CommandInset href
 LatexCommand href
-name "GitHub.com"
-target "https://github.com/JeppeDruedahl/numecon"
+name "Code"
+target "https://github.com/NumEconCopenhagen/NumEcon"
 literal "false"
 
 \end_inset
@@ -446,15 +439,10 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-Interactive version: 
-\series default
-
 \begin_inset CommandInset href
 LatexCommand href
-name "MyBinder.org"
-target "https://mybinder.org/v2/gh/JeppeDruedahl/numecon/master"
+name "Notebooks"
+target "https://github.com/NumEconCopenhagen/NumEconNotebooks"
 literal "false"
 
 \end_inset
@@ -475,36 +463,24 @@ Today:
 \begin_layout Enumerate
 
 \series bold
-Notebook:
+Code:
 \series default
- course_macro3
+ macro
 \backslash
-Aiyagari.ipynb
+Aiyagari.py
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Code:
+Notebook:
 \series default
- numecon
+ macro
 \backslash
-course_macro3
-\backslash
-Aiyagari.py
+Aiyagari.ipynb
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-
-\series bold
-Python introduction:
-\series default
- misc
-\backslash
-Python in 15 Minutes.ipynb
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -637,14 +613,10 @@ Households
 \end_layout
 
 \begin_layout Frame
-Solve the following recursive problem starting in period 
-\begin_inset Formula $0$
-\end_inset
-
-
+Solve the following problem:
 \begin_inset Formula 
 \begin{eqnarray*}
-v_{t}(a_{t-1},z_{t},u_{t}) & = & \max_{c_{t}}\frac{c_{t}^{1-\sigma}}{1-\sigma}+\beta\mathbb{E}_{t}[v_{t+1}(a_{t},z_{t+1},u_{t+1})]\\
+v_{t}(a_{t-1},z_{t},u_{t}) & = & \max_{c_{t}}\mathbb{E}_{t}\left[\sum_{k=0}^{\infty}\beta^{k}\frac{c_{t+k}^{1-\sigma}}{1-\sigma}\right]\\
  & \text{s.t.}\\
 l_{t} & = & \begin{cases}
 \frac{z_{t}-\pi\mu}{1-\pi} & \text{if }u_{t}=0\\
@@ -691,7 +663,7 @@ given time paths for
 status open
 
 \begin_layout Plain Layout
-Households (reformulation)
+Households (reformulation I)
 \end_layout
 
 \end_inset
@@ -700,6 +672,66 @@ Households (reformulation)
 \end_layout
 
 \begin_layout Frame
+Using 
+\series bold
+Bellman's Principle of Optiamality
+\series default
+, we can reformulate the problem as a recursive 
+\series bold
+Bellman equation
+\series default
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+v_{t}(a_{t-1},z_{t},u_{t}) & = & \max_{c_{t}}\frac{c_{t}^{1-\sigma}}{1-\sigma}+\beta\mathbb{E}_{t}[v_{t+1}(a_{t},z_{t+1},u_{t+1})]\\
+ & \text{s.t.}\\
+l_{t} & = & \begin{cases}
+\frac{z_{t}-\pi\mu}{1-\pi} & \text{if }u_{t}=0\\
+\mu & \text{else}
+\end{cases}\\
+a_{t}+c_{t} & = & R_{t}a_{t-1}+w_{t}l_{t}\\
+u_{t+1} & = & \begin{cases}
+1 & \text{with prob. }\pi\\
+0 & \text{else}
+\end{cases}\\
+a_{t} & \geq & 0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Households (reformulation II)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+Defining 
+\series bold
+cash-on-hand
+\series default
+ 
+\begin_inset Formula $m_{t}=R_{t}a_{-1}=w_{t}l_{t}$
+\end_inset
+
+ we have:
 \begin_inset Formula 
 \begin{eqnarray*}
 v_{t}(m_{t},z_{t}) & = & \max_{c_{t}}\frac{c_{t}^{1-\sigma}}{1-\sigma}+\beta\mathbb{E}_{t}[v_{t+1}(m_{t+1},z_{t+1})]\\
@@ -717,6 +749,14 @@ m_{t+1} & = & R_{t+1}a_{t}+w_{t+1}l_{t+1}\\
 a_{t} & \geq & 0
 \end{eqnarray*}
 
+\end_inset
+
+Denote the 
+\series bold
+solution function for consumption by
+\series default
+ 
+\begin_inset Formula $c_{t}^{\ast}(m_{t},z_{t})$
 \end_inset
 
 
@@ -769,7 +809,7 @@ where
 Maximize profits
 \begin_inset Formula 
 \[
-\max_{K_{t},L_{t}}f(k_{t})L_{t}-r_{t}K_{t}-w_{t}L_{t}=
+\max_{K_{t},L_{t}}f(k_{t})L_{t}-r_{t}K_{t}-w_{t}L_{t}
 \]
 
 \end_inset
@@ -1101,7 +1141,7 @@ Solution algorithm
 status open
 
 \begin_layout Plain Layout
-Solve household problem
+Solve household problem: Stationary equilibrium
 \end_layout
 
 \end_inset
@@ -1116,15 +1156,6 @@ Solve household problem
 Infinite horizon:
 \series default
  
-\begin_inset Formula $c^{\ast}(m_{t},z_{t})$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Assume 
 \begin_inset Formula $R_{t}=R^{\ast},\forall t$
 \end_inset
 
@@ -1135,22 +1166,103 @@ Assume
 
 \end_layout
 
+\begin_layout Itemize
+
+\series bold
+Goal:
+\series default
+ We need to find 
+\begin_inset Formula $c^{\ast}(m_{t},z_{t})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Dynamic programming: 
+\series default
+The most easy way to solve the household problem is with the 
+\emph on
+endogenous grid point method
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Optimal consumption behavior implies:
+\end_layout
+
+\begin_deeper
 \begin_layout Enumerate
-Solve the infinite horizon household problem using dynamic programming
+
+\series bold
+Interior solution:
+\series default
+ If 
+\begin_inset Formula $a_{t}=m_{t}-c^{\ast}(m_{t},z_{t})>0$
+\end_inset
+
+ then the Euler-equation is necessary and sufficient,
+\series bold
+
+\begin_inset Formula 
+\[
+c_{t}^{-\rho}=\beta R^{\ast}\mathbb{E}_{t}[c_{t+1}^{-\rho}]\Rightarrow c_{t}=(\beta R^{\ast}\mathbb{E}_{t}[c_{t+1}^{-\rho}])^{-\frac{1}{\rho}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Constrained solution:
+\series default
+ Else 
+\begin_inset Formula $c^{\ast}(m_{t},z_{t})=m_{t}$
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \begin_layout Itemize
 
 \series bold
-Transition path: 
+Fundamental idea: 
 \series default
+Start from from a guess on the consumption function, update using the Euler-equa
+tion, and iterate until convergence
+\end_layout
 
-\begin_inset Formula $c^{\ast}(m_{t},z_{t})$
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
- for 
-\begin_inset Formula $t\in\{1,2,\dots,\mathcal{T}\}$
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Endogenous grid point method
+\end_layout
+
 \end_inset
 
 
@@ -1158,41 +1270,148 @@ Transition path:
 
 \begin_deeper
 \begin_layout Enumerate
-Assume known paths for 
-\begin_inset Formula $R_{t}$
+
+\series bold
+Choose tolerance 
+\begin_inset Formula $\epsilon>0$
 \end_inset
 
- and 
-\begin_inset Formula $w_{t}$
+ and define the following grids:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{G}_{a}=\{a^{0},a^{1},\dots,a^{\#_{a}}\}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Enumerate
-Set 
-\begin_inset Formula $c_{\mathcal{T}+1}(m_{\mathcal{T}+1},z_{\mathcal{T}+1})=c^{\ast}(m_{\mathcal{T}+1},z_{\mathcal{T}+1})$
+\begin_inset Formula $\mathcal{G}_{m}=\{m^{0},m^{1},\dots,m^{\#_{m}}\}$
 \end_inset
 
 
 \end_layout
 
 \begin_layout Enumerate
-Solve backwards 
-\begin_inset Formula $\mathcal{T}$
+\begin_inset Formula $\mathcal{Z}=\{z^{0},z^{1},\dots,z^{\#_{z}}\}$
 \end_inset
 
- periods using dynamic programming
+
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
+\begin_layout Enumerate
 
 \series bold
-Dynamic programming:
+Goal:
 \series default
- The code uses a variant of the endogenous grid method, alternatively a
- value function iteration algorithm could be used
+ Find 
+\begin_inset Formula $c^{\ast}(m^{i},z^{j}),\,\forall(m^{i},z^{j})\in\mathcal{G}_{m}\times\mathcal{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initial guess: 
+\begin_inset Formula $c_{n}^{\ast}(m^{i},z^{j})=m^{i}$
+\end_inset
+
+ 
+\series default
+for 
+\begin_inset Formula $n=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Update guess: 
+\series default
+For each 
+\begin_inset Formula $z^{j}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{Z}$
+\end_inset
+
+ do:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Compute 
+\begin_inset Formula $q^{k}=\beta R^{\ast}\mathbb{E}_{t}[\left(c_{n}^{\ast}(Ra^{k}+w^{\ast}l_{t+1},z^{j})\right)^{-\rho}],\forall a^{k}\in\mathcal{G}_{a}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Compute 
+\begin_inset Formula $\tilde{c}^{k}=\left(q^{k}\right)^{-\frac{1}{\rho}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{m}^{k}=a^{k}+c^{k},\forall k\in\{1,\dots,\#_{a}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Create linear interpolant where 
+\begin_inset Formula $\{0,\tilde{m}^{1},\tilde{m}^{2},\dots,\tilde{m}^{\#_{a}}\}$
+\end_inset
+
+ is the 
+\begin_inset Formula $x$
+\end_inset
+
+-values, and 
+\begin_inset Formula $\{0,\tilde{c}^{1},\tilde{c}^{2},\dots,\tilde{c}^{\#_{a}}\}$
+\end_inset
+
+ is the 
+\begin_inset Formula $y$
+\end_inset
+
+-values
+\end_layout
+
+\begin_layout Enumerate
+Use the interpolant to find 
+\begin_inset Formula $c_{n+1}^{\ast}(m^{i},z^{j}),\,\forall(m^{i},z^{j})\in\mathcal{G}_{m}\times\mathcal{Z}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $\max_{(m^{i},z^{j})\in\mathcal{G}_{m}\times\mathcal{Z}}|c_{n+1}^{\ast}(m^{i},z^{j})-c_{n}^{\ast}(m^{i},z^{j})|>\epsilon$
+\end_inset
+
+ 
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+return to step 4, else stop
 \end_layout
 
 \end_deeper
@@ -1281,6 +1500,90 @@ If for some tolerance
 then stop, otherwise return to step 1 and update guess appropriately
 \end_layout
 
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Solve household problem: Transition path
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Transition path: 
+\series default
+We need to find a path of consumption functions, 
+\begin_inset Formula $c_{t}^{\ast}(m_{t},z_{t})$
+\end_inset
+
+ for 
+\begin_inset Formula $t\in\{1,2,\dots,\mathcal{T}\}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Assume known paths for 
+\begin_inset Formula $R_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $c_{\mathcal{T}+1}(m_{\mathcal{T}+1},z_{\mathcal{T}+1})=c^{\ast}(m_{\mathcal{T}+1},z_{\mathcal{T}+1})$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Solve backwards 
+\begin_inset Formula $\mathcal{T}$
+\end_inset
+
+ periods using dynamic programming like in 
+\begin_inset Quotes eld
+\end_inset
+
+update guess
+\begin_inset Quotes erd
+\end_inset
+
+ bullet in the slide 
+\begin_inset Quotes eld
+\end_inset
+
+Endogenous grid point method
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain

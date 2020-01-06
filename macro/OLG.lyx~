@@ -461,21 +461,21 @@ Today:
 \begin_layout Enumerate
 
 \series bold
-Code:
-\series default
- macro
-\backslash
-OLG.py
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Notebook:
 \series default
  macro
 \backslash
 OLG.ipynb
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Code:
+\series default
+ macro
+\backslash
+OLG.py
 \end_layout
 
 \end_deeper

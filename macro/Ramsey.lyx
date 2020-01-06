@@ -150,7 +150,7 @@ vspace{-2mm}}
 
 
 \backslash
-subtitle{numecon} 
+subtitle{NumEcon} 
 \end_layout
 
 \begin_layout Plain Layout
@@ -422,22 +422,15 @@ Solve a Ramsey model numerically (using Python)
 \begin_layout Itemize
 
 \series bold
-numecon module
-\series default
- (under construction)
+NumEcon module
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-
-\series bold
-Source files: 
-\series default
-
 \begin_inset CommandInset href
 LatexCommand href
-name "GitHub.com"
-target "https://github.com/JeppeDruedahl/numecon"
+name "Code"
+target "https://github.com/NumEconCopenhagen/NumEcon"
 literal "false"
 
 \end_inset
@@ -446,15 +439,10 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-
-\series bold
-Interactive version: 
-\series default
-
 \begin_inset CommandInset href
 LatexCommand href
-name "MyBinder.org"
-target "https://mybinder.org/v2/gh/JeppeDruedahl/numecon/master"
+name "Notebooks"
+target "https://github.com/NumEconCopenhagen/NumEconNotebooks"
 literal "false"
 
 \end_inset
@@ -475,36 +463,24 @@ Today:
 \begin_layout Enumerate
 
 \series bold
-Notebook:
+Code:
 \series default
- course_macro3
+ macro
 \backslash
-Ramsey.ipynb
+Ramsey.py
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Code:
+Notebook:
 \series default
- numecon
+ macro
 \backslash
-course_macro3
-\backslash
-Ramsey.py
+Ramsey.ipynb
 \end_layout
 
 \end_deeper
-\begin_layout Itemize
-
-\series bold
-Python introduction:
-\series default
- misc
-\backslash
-Python in 15 Minutes.ipynb
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
