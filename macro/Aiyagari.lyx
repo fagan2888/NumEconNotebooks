@@ -164,7 +164,7 @@ author{Jeppe Druedahl}
 
 
 \backslash
-date{2019}
+date{2020}
 \end_layout
 
 \begin_layout Plain Layout
@@ -356,38 +356,6 @@ end{frame}
 addtocounter{framenumber}{-1}
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{frame}<beamer>
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-frametitle{Plan}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tableofcontents[]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{frame}
-\end_layout
-
 \end_inset
 
 
@@ -429,7 +397,7 @@ NumEcon module
 \begin_layout Enumerate
 \begin_inset CommandInset href
 LatexCommand href
-name "Code"
+name "Link to code"
 target "https://github.com/NumEconCopenhagen/NumEcon"
 literal "false"
 
@@ -441,7 +409,7 @@ literal "false"
 \begin_layout Enumerate
 \begin_inset CommandInset href
 LatexCommand href
-name "Notebooks"
+name "Link to notebooks"
 target "https://github.com/NumEconCopenhagen/NumEconNotebooks"
 literal "false"
 
@@ -455,8 +423,6 @@ literal "false"
 
 \series bold
 Today:
-\series default
- 
 \end_layout
 
 \begin_deeper
@@ -484,6 +450,43 @@ Aiyagari.ipynb
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}<beamer>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{Plan}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents[]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
 \end_inset
 
 
@@ -915,7 +918,7 @@ The prices are determined by optimal firm behavior, i.e.
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $c(\bullet)$
+\begin_inset Formula $c^{\ast}(\bullet)$
 \end_inset
 
  solve the household problem given constant prices 
@@ -1888,6 +1891,36 @@ Potential extensions
 \end_layout
 
 \begin_deeper
+\begin_layout Itemize
+
+\series bold
+Note: 
+\series default
+Like a Ramsey model, but with heterogeneity on the household side
+\end_layout
+
+\begin_layout Itemize
+Easy to look at 
+\series bold
+steady state welfare effects 
+\series default
+of various policies (taxes, social security etc.)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+...
+ including distributional effects
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Extensions:
+\end_layout
+
+\begin_deeper
 \begin_layout Enumerate
 
 \series bold
@@ -1918,9 +1951,92 @@ More complex uncertainty
 \end_layout
 
 \begin_layout Enumerate
-(Aggregate uncertainty)
+
+\series bold
+Aggregate uncertainty
 \end_layout
 
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Aggregate uncertainty
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Aggregate uncertainty 
+\series default
+is particularly challenging
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Problem: 
+\series default
+Future prices will be a function of the whole distribution of households
+ over idiosyncratic states 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ should be a state in the household problem...
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Solution:
+\series default
+ 
+\series bold
+The Krussel-Smith method
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Add aggregate capital as state in household problem instead of the distribution
+ of households over idiosyncratic states
+\end_layout
+
+\begin_layout Enumerate
+Assume households believe future aggregate capital is a known parametric
+ function of current aggregate capital and pure aggregate states (e.g.
+ technology)
+\end_layout
+
+\begin_layout Enumerate
+Adjust the parameters in the belief function until no systematic errors
+ is made when simulating assuming these beliefs
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ 
+\emph on
+an approximate rational expectations equilibrium is found
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain

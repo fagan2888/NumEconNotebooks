@@ -164,7 +164,7 @@ author{Jeppe Druedahl}
 
 
 \backslash
-date{2019}
+date{2020}
 \end_layout
 
 \begin_layout Plain Layout
@@ -356,38 +356,6 @@ end{frame}
 addtocounter{framenumber}{-1}
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{frame}<beamer>
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-frametitle{Plan}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tableofcontents[]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{frame}
-\end_layout
-
 \end_inset
 
 
@@ -461,16 +429,6 @@ Today:
 \begin_layout Enumerate
 
 \series bold
-Notebook:
-\series default
- macro
-\backslash
-OLG.ipynb
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Code:
 \series default
  macro
@@ -478,10 +436,57 @@ Code:
 OLG.py
 \end_layout
 
+\begin_layout Enumerate
+
+\series bold
+Notebook:
+\series default
+ macro
+\backslash
+OLG.ipynb
+\end_layout
+
 \end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}<beamer>
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+frametitle{Plan}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents[]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
 \end_inset
 
 
