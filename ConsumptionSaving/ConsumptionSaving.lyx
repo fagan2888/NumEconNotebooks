@@ -1252,7 +1252,6 @@ status open
 
 \begin_layout Plain Layout
 
-\size small
 
 \backslash
 vspace{-2mm}
@@ -1315,7 +1314,6 @@ status open
 
 \begin_layout Plain Layout
 
-\size small
 
 \backslash
 vspace{-8mm}
@@ -1644,7 +1642,6 @@ status open
 
 \begin_layout Plain Layout
 
-\size footnotesize
 
 \backslash
 vspace{2mm}
@@ -1789,6 +1786,10 @@ Other parameters:
 
 , 
 \begin_inset Formula $\pi=0.005$
+\end_inset
+
+, 
+\begin_inset Formula $\mu=0.0$
 \end_inset
 
 , 
@@ -2641,15 +2642,7 @@ Weak return impatience
 Growth impatience 
 \series default
 (GI): 
-\begin_inset Formula $(\beta R)^{1/\rho}\mathbb{E}_{t}\psi_{t+1}^{-1}/G<1$
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-note: 
-\begin_inset Formula $\mathbb{E}_{t}\psi_{t+1}^{-1}>1$
+\begin_inset Formula $(\beta R)^{1/\rho}\mathbb{E}_{t}[\psi_{t+1}^{-1}]/G<1$
 \end_inset
 
 
@@ -2673,15 +2666,7 @@ Absolute impatience
 Finite value of autarky 
 \series default
 (FVA): 
-\begin_inset Formula $\beta\mathbb{E}_{t}(G\psi_{t+1})^{1-\rho}<1$
-\end_inset
-
-
-\begin_inset Newline newline
-\end_inset
-
-note: 
-\begin_inset Formula $\mathbb{E}_{t}\psi_{t+1}^{1-\rho}\leq1$
+\begin_inset Formula $\beta\mathbb{E}_{t}[(G\psi_{t+1})^{1-\rho}]<1$
 \end_inset
 
 
@@ -3087,7 +3072,6 @@ status open
 
 \begin_layout Plain Layout
 
-\size small
 
 \backslash
 vspace{-5mm}
@@ -3586,11 +3570,7 @@ is binding below the lowest
 \begin_inset Formula $M_{t}$
 \end_inset
 
- points we find from 
-\begin_inset Formula $A_{t}=0$
-\end_inset
-
-
+ points we can generate
 \end_layout
 
 \end_deeper
