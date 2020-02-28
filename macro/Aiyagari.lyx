@@ -619,7 +619,7 @@ Households
 Solve the following problem:
 \begin_inset Formula 
 \begin{eqnarray*}
-v_{t}(a_{t-1},z_{t},u_{t}) & = & \max_{c_{t}}\mathbb{E}_{t}\left[\sum_{k=0}^{\infty}\beta^{k}\frac{c_{t+k}^{1-\sigma}}{1-\sigma}\right]\\
+v_{t}(a_{t-1},z_{t},u_{t}) & = & \max_{\{c_{t+k}\}_{k=0}^{\infty}}\mathbb{E}_{t}\left[\sum_{k=0}^{\infty}\beta^{k}\frac{c_{t+k}^{1-\sigma}}{1-\sigma}\right]\\
  & \text{s.t.}\\
 l_{t} & = & \begin{cases}
 \frac{z_{t}-\pi\mu}{1-\pi} & \text{if }u_{t}=0\\
@@ -731,10 +731,10 @@ Defining
 cash-on-hand
 \series default
  
-\begin_inset Formula $m_{t}=R_{t}a_{-1}=w_{t}l_{t}$
+\begin_inset Formula $m_{t}=R_{t}a_{t-1}+w_{t}l_{t}$
 \end_inset
 
- we have:
+ we have
 \begin_inset Formula 
 \begin{eqnarray*}
 v_{t}(m_{t},z_{t}) & = & \max_{c_{t}}\frac{c_{t}^{1-\sigma}}{1-\sigma}+\beta\mathbb{E}_{t}[v_{t+1}(m_{t+1},z_{t+1})]\\
@@ -795,7 +795,7 @@ Production function:
 \begin_inset Formula $Y_{t}=F(K_{t},L_{t})=f(k_{t})L_{t}$
 \end_inset
 
- 
+
 \begin_inset Newline newline
 \end_inset
 
@@ -803,7 +803,15 @@ where
 \begin_inset Formula $F$
 \end_inset
 
- is neoclassical
+ is neoclassical, 
+\begin_inset Formula $k_{t}=K_{t}/L_{t}$
+\end_inset
+
+, and 
+\begin_inset Formula $f(k_{t})=F(k_{t},1)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -876,6 +884,14 @@ stationary equilibrium
 \begin_inset Formula $\kappa^{\ast}$
 \end_inset
 
+ over 
+\begin_inset Formula $a_{t-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{t}$
+\end_inset
+
 , a consumption function 
 \begin_inset Formula $c^{\ast}(m_{t},z_{t})$
 \end_inset
@@ -911,7 +927,7 @@ The prices are determined by optimal firm behavior, i.e.
 \end_inset
 
  and 
-\begin_inset Formula $w=w(K^{\ast}/L^{\ast})$
+\begin_inset Formula $w^{\ast}=w(K^{\ast}/L^{\ast})$
 \end_inset
 
 
@@ -1352,7 +1368,7 @@ For each
 \begin_deeper
 \begin_layout Enumerate
 Compute 
-\begin_inset Formula $q^{k}=\beta R^{\ast}\mathbb{E}_{t}[\left(c_{n}^{\ast}(Ra^{k}+w^{\ast}l_{t+1},z^{j})\right)^{-\rho}],\forall a^{k}\in\mathcal{G}_{a}$
+\begin_inset Formula $q^{k}=\beta R^{\ast}\mathbb{E}_{t}[\left(c_{n}^{\ast}(R^{\star}a^{k}+w^{\ast}l_{t+1},z^{j})\right)^{-\rho}],\forall a^{k}\in\mathcal{G}_{a}$
 \end_inset
 
 
@@ -1449,7 +1465,7 @@ Guess on
 
 \begin_layout Enumerate
 Calculate 
-\begin_inset Formula $w^{\ast}=w(r^{-1}(R^{\ast}-1+\delta)$
+\begin_inset Formula $w^{\ast}=w(r^{-1}(R^{\ast}-1+\delta))$
 \end_inset
 
 
@@ -1614,8 +1630,16 @@ Guess on
 \begin_inset Formula $\{R_{t}\}_{t=0}^{\mathcal{T}}$
 \end_inset
 
- with 
+, 
 \begin_inset Formula $R_{t}=R^{\ast},\forall t\geq\mathcal{T}/2$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+and 
+\begin_inset Formula $R_{0}=1+r(\frac{1}{N}\sum_{i=1}^{N}a_{-1})-\delta$
 \end_inset
 
 
@@ -1623,7 +1647,7 @@ Guess on
 
 \begin_layout Enumerate
 Calculate 
-\begin_inset Formula $\{w_{t}\}_{t=0}^{\mathcal{T}}=\{w(r^{-1}(R_{t}-1+\delta)\}$
+\begin_inset Formula $\{w_{t}\}_{t=0}^{\mathcal{T}}=\{w(r^{-1}(R_{t}-1+\delta)\}_{t=0}^{\mathcal{T}}$
 \end_inset
 
 
@@ -1643,10 +1667,10 @@ Simulate a panel of
 
 \begin_layout Enumerate
 Calculate 
-\begin_inset Formula $\{k_{t}\}_{t=0}^{\mathcal{T}}=\{\frac{1}{N}\sum_{i=1}^{N}a_{t}\}_{t=0}^{\mathcal{T}}$
+\begin_inset Formula $\{k_{t}\}_{t=0}^{\mathcal{T}}=\{\frac{1}{N}\sum_{i=1}^{N}a_{t-1}\}_{t=0}^{\mathcal{T}}$
 \end_inset
 
- 
+
 \end_layout
 
 \begin_layout Enumerate
@@ -1665,7 +1689,7 @@ If for some tolerance
 
 \begin_inset Formula 
 \[
-\max_{t\in\{1,2,\dots,T\}}\left|R_{t}-\tilde{R}_{t}\right|<\iota
+\max_{t\in\{0,1,2,\dots,\mathcal{T}\}}\left|R_{t}-\tilde{R}_{t}\right|<\iota
 \]
 
 \end_inset

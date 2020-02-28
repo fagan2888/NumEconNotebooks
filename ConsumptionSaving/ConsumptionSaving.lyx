@@ -641,7 +641,11 @@ A_{T} & \geq & 0
 \begin_layout Itemize
 
 \series bold
-Well-defined analytical solution if
+Well-defined analytical solution for 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+ if
 \end_layout
 
 \begin_deeper
@@ -1163,7 +1167,7 @@ High MPC: Danish SP payout
 \begin_layout Standard
 \begin_inset Graphics
 	filename graphics/sp.png
-	width 85text%
+	width 75text%
 
 \end_inset
 
@@ -1752,8 +1756,11 @@ VFI
 status open
 
 \begin_layout Plain Layout
-Convergence of 
-\begin_inset Formula $-1.0/v_{t}(m_{t})\rightarrow v^{\star}(m_{t})$
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+; Convergence of 
+\begin_inset Formula $-1.0/v_{t}(m_{t})\rightarrow-1.0/v^{\star}(m_{t})$
 \end_inset
 
 
@@ -1812,7 +1819,10 @@ Other parameters:
 status open
 
 \begin_layout Plain Layout
-Convergence of 
+\begin_inset Formula $T\rightarrow\infty$
+\end_inset
+
+: Convergence of 
 \begin_inset Formula $c_{t}(m_{t})\rightarrow c^{\star}(m_{t})$
 \end_inset
 
@@ -3419,44 +3429,6 @@ c_{t} & = & m_{t}+\lambda
 
 \end_layout
 
-\begin_layout Itemize
-
-\series bold
-For simplicity:
-\series default
- Assume 
-\begin_inset Formula $\lambda=0$
-\end_inset
-
- then we must have 
-\begin_inset Formula $a_{t}>0$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-Note that 
-\begin_inset Formula $\lim_{c_{t}\rightarrow0}u^{\prime}(c_{t})=\infty$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-But 
-\begin_inset Formula $a_{t}\leq0\Rightarrow\text{Pr}[m_{t+1}\leq0]>0$
-\end_inset
-
- where 
-\begin_inset Formula $c_{t+1}=0$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \end_deeper
 \begin_layout Standard
 \begin_inset Separator plain
@@ -3606,7 +3578,7 @@ status open
 Prerequisites 
 \series default
 (
-\begin_inset Formula $\lambda=0\Rightarrow\underline{a}_{t}=0$
+\begin_inset Formula $\lambda=0>0\Rightarrow\underline{a}_{t}=0$
 \end_inset
 
 )
@@ -3787,9 +3759,9 @@ Addendum: The natural borrowing constraint (
 \begin_layout Itemize
 The 
 \series bold
-optimal end-of-period asset choice satisfies
+optimal end-of-period asset choice satisfies 
 \series default
-
+the backwards recursion 
 \begin_inset Formula 
 \[
 a_{t}\geq\underline{a}_{t}=\begin{cases}
@@ -3810,7 +3782,7 @@ where
 \begin{eqnarray*}
 \varLambda_{t} & \equiv & \begin{cases}
 R^{-1}GL_{t}\underline{\psi}\,\underline{\xi} & \mbox{if \ensuremath{t=T_{R}-1}}\\
-R^{-1}\left[\min\left\{ \varLambda_{T-1},\lambda_{t}\right\} +\underline{\xi}\right]GL_{t}\underline{\psi} & \mbox{if \ensuremath{t<T}}-1
+R^{-1}\left[\min\left\{ \varLambda_{t+1},\lambda_{t}\right\} +\underline{\xi}\right]GL_{t}\underline{\psi} & \mbox{if \ensuremath{t<T}}-1
 \end{cases}
 \end{eqnarray*}
 

@@ -14,7 +14,7 @@ colors = prop_cycle.by_key()['color']
 from consav.misc import nonlinspace
 from consav.misc import normal_gauss_hermite
 from consav import linear_interp
-from consav import ModelClass
+from consav import ModelClass # only used with numba
 
 ##########################
 # 1. pure Python version #
@@ -415,8 +415,8 @@ class ConsumptionSavingModelClass():
                 sol.c[t,i_m] = result.x
                 sol.inv_v[t,i_m]= -1/result.fun
             
-            # save grid for m
-            sol.m[t,:] = par.grid_m[t,:]
+        # save grid for m
+        sol.m[t,:] = par.grid_m[t,:]
 
         if do_print:
             print(f'model solved in {time.time()-t0:.1f} secs')
@@ -555,7 +555,7 @@ class ConsumptionSavingModelClass():
         ax.set_ylabel('$-1.0/v_t(m_t)$')
         ax.legend(loc='upper right',frameon=True)
 
-        fig.savefig(f'figs/cons_converge_{self.name}.pdf')
+        fig.savefig(f'figs/val_converge_{self.name}.pdf')
 
     def plot_consumption_function_convergence(self):
 
@@ -580,7 +580,7 @@ class ConsumptionSavingModelClass():
         ax.set_ylabel('$-1.0/v_t(m_t)$')
         ax.legend(loc='upper left',frameon=True)
 
-        fig.savefig(f'figs/val_converge_{self.name}.pdf')
+        fig.savefig(f'figs/cons_converge_{self.name}.pdf')
 
     def plot_consumption_function_convergence_age(self):
 
